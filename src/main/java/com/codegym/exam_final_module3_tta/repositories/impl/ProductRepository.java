@@ -59,12 +59,7 @@ public class ProductRepository implements IProductRepository {
         List<Product> topProducts = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = BaseRepository.getConnection()
-                    .prepareStatement("SELECT p.id, p.name, p.price, p.discount, p.stock_quantity, COUNT(od.order_id) AS total_orders " +
-                            "FROM products p " +
-                            "JOIN order_details od ON p.id = od.product_id " +
-                            "GROUP BY p.id " +
-                            "ORDER BY total_orders DESC " +
-                            "LIMIT ?");
+                    .prepareStatement("SELECT * FROM Products ORDER BY total_sales DESC LIMIT ?");
             preparedStatement.setInt(1, topCount);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -73,6 +68,7 @@ public class ProductRepository implements IProductRepository {
                 double price = resultSet.getDouble("price");
                 double discount = resultSet.getDouble("discount");
                 int stockQuantity = resultSet.getInt("stock_quantity");
+//                double totalSales =resultSet.getDouble("total_sales");
                 Product product = new Product(id, name, price, discount, stockQuantity);
                 topProducts.add(product);
             }

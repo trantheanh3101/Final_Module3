@@ -43,7 +43,7 @@
 
         <div class="mb-3">
             <label for="price" class="form-label">Price:</label>
-            <input type="number" class="form-control" id="price" name="price" min="101" required>
+            <input type="number" class="form-control" id="price" name="price" min="100" required>
         </div>
 
         <div class="mb-3">
@@ -58,7 +58,7 @@
 
         <div class="mb-3">
             <label for="stock" class="form-label">Stock:</label>
-            <input type="number" class="form-control" id="stock" name="stock" min="11" required>
+            <input type="number" class="form-control" id="stock" name="stock" min="10" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>

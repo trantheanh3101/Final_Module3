@@ -6,6 +6,16 @@ public class Product {
     private double price;
     private double discount;
     private int stockQuantity;
+    private double totalSales; // Thêm trường totalSales
+
+    public Product(int id, String name, double price, double discount, int stockQuantity, double totalSales) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.discount = discount;
+        this.stockQuantity = stockQuantity;
+        this.totalSales = totalSales;
+    }
 
     public Product() {}
 
